@@ -1,0 +1,192 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #48c6ef, #6f86d6, #ff9a9e, #fad0c4);
+    background-size: 400% 400%;
+    animation: animateBG 14s infinite alternate ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes animateBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.aurora {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent);
+    mix-blend-mode: overlay;
+    opacity: 0.9;
+    animation: auroraMove 15s infinite alternate ease-in-out;
+    filter: blur(10px);
+}
+
+@keyframes auroraMove {
+    0% { transform: scale(1) translateX(0px); }
+    50% { transform: scale(1.2) translateX(-60px); }
+    100% { transform: scale(1) translateX(60px); }
+}
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 6s infinite alternate ease-in-out;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.4); }
+    100% { opacity: 0.2; transform: scale(1); }
+}
+
+.particle {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: floatParticles 7s infinite ease-in-out;
+}
+
+@keyframes floatParticles {
+    0% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(-15px); opacity: 0.3; }
+    100% { transform: translateY(0); opacity: 0.6; }
+}
+
+.glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent);
+    mix-blend-mode: soft-light;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(30px); /* Stronger Glass Effect */
+    width: 420px;
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: fadeIn 0.8s ease-in-out, floating 3s infinite ease-in-out;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #00ff7f, #1e90ff, #ff00ff);
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0.8;
+}
+
+.heading {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+}
+
+.input {
+    padding: 16px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    outline: none;
+    margin-bottom: 15px;
+    color: #fff;
+    width: 100%;
+    transition: all 0.4s ease;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.btn {
+    background: linear-gradient(90deg, #00ff7f, #1e90ff, #ff00ff);
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 255, 127, 0.9);
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    filter: blur(25px);
+    opacity: 0.9;
+    z-index: -1;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 35px;
+        width: 90%;
+    }
+    .heading {
+        font-size: 30px;
+    }
+    .input {
+        font-size: 16px;
+    }
+    .btn {
+        font-size: 20px;
+    }
+}
+
